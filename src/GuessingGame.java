@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -19,7 +20,21 @@ public class GuessingGame {
         int tries = 0;
 
         while (true) {
-            int guess = input.nextInt();
+            int guess;
+            try {
+                guess = input.nextInt();
+            } catch (InputMismatchException e) {
+                String bad_input = input.next();
+                System.out.println("That's not an integer, please try again!");
+                continue;
+            }
+
+            if (guess < 1 || guess > 100) {
+                System.out.println(guess + " is not a valid number, please try again!");
+                continue;
+            }
+
+            //int guess = input.nextInt();
 
             tries = tries + 1;
 
@@ -27,6 +42,10 @@ public class GuessingGame {
                 System.out.println("Your guess is too low, please try again!");
             } else if (guess > number) {
                 System.out.println("Your guess is too high, please try again!");
+            } else {
+                System.out.println("Well done " + name);
+                System.out.println("You found the answer in " + tries + " tries!");
+                break;
             }
         }
 
