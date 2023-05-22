@@ -2,6 +2,16 @@ public class Mars {
 
 
     public static void main(String[] args) throws InterruptedException {
+        Mars mars = new Mars();
+        mars.startLanding();
+        
+        GuessingGame guessingGame = new GuessingGame();
+        guessingGame.startDoingGuessingGame();
+
+        MarsExpedition marsExpedition = new MarsExpedition();
+        marsExpedition.doMarsExpedition();
+    }
+    public void startLanding() throws InterruptedException {
         String colonyName = "Enterprise";
         int shipPopulation = 300;
         double meals = 4000.00;
@@ -23,8 +33,6 @@ public class Mars {
         } else {
             System.out.println("ERROR!!!! Flight plan already set. Landing on the Hill");
         }
-        new GuessingGame();
-        new MarsExpedition();
     }
 
     public static boolean landingCheck(int minutesLeft) throws InterruptedException {

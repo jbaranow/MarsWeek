@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class MarsExpedition {
     public static void main(String[] args) {
+        MarsExpedition marsExpedition = new MarsExpedition();
+        marsExpedition.doMarsExpedition();
+    }
+
+    public void doMarsExpedition(){
         Scanner input = new Scanner(System.in);
 
         //initialize
